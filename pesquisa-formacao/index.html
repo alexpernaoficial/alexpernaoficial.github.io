@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Formação em vagas de GRC</title>
+<meta name="description" content="Pesquisa com 146 vagas públicas de governança de TI e GRC no Brasil e no exterior: que formação, certificações e idioma elas pedem.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Que formação as vagas de governança de TI e GRC pedem?">
+<meta property="og:description" content="Leitura de 146 vagas públicas no Brasil e no exterior: formação, cursos, certificações e idioma.">
+<meta property="og:url" content="https://alexpernaoficial.github.io/pesquisa-formacao/">
+<meta property="og:image" content="https://alexpernaoficial.github.io/pesquisa-formacao/og-pesquisa.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@85,600;85,700;100,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Mesmo visual do site: topo e rodapé escuros, leitura em faixa branca. Gráficos de barras horizontais feitos em HTML, sobre fundo branco. */
+:root {
+  --night: #0e1a1f;
+  --night-2: #16262c;
+  --night-ink: #e6eef0;
+  --night-muted: #93a8ae;
+  --paper: #ffffff;
+  --bg: #f2f5f6;
+  --ink: #142126;
+  --muted: #55666c;
+  --line: #d9e1e3;
+  --grid: #e8eef0;
+  --accent: #1b5a6e;
+  --cyan: #5fc2d8;
+  --br: #0e7c9e;      /* série Brasil */
+  --ext: #c2761c;     /* série exterior */
+  --font-display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 18px; line-height: 1.6; margin: 0; }
+.wrap { max-width: 800px; margin: 0 auto; padding-inline: 20px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+.label { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; }
+
+.hero { background: var(--night); color: var(--night-ink); position: relative; }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: linear-gradient(90deg, var(--cyan), transparent 70%); }
+.hero .wrap { padding-block: 40px 52px; display: grid; gap: 18px; }
+.back { font-size: 15.5px; color: var(--night-muted); }
+.back:hover { color: var(--cyan); }
+.hero .label { color: var(--cyan); }
+.hero h1 { font-size: clamp(34px, 6.4vw, 54px); font-weight: 700; font-stretch: 85%; color: #fff; }
+.lede { font-size: clamp(18px, 2.8vw, 21px); max-width: 52ch; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 6px; }
+.tile { background: var(--night-2); border-radius: 6px; padding: 14px 16px; display: grid; gap: 2px; }
+.tile b { font-family: var(--font-display); font-size: 38px; font-weight: 700; font-stretch: 85%; color: #fff; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.tile span { font-size: 15px; color: var(--night-muted); line-height: 1.35; }
+
+main { background: var(--paper); }
+section { padding-block: 48px; border-bottom: 1px solid var(--line); display: grid; gap: 18px; }
+section:last-child { border-bottom: 0; }
+section h2 { font-size: 28px; font-weight: 700; font-stretch: 85%; }
+section h2::before { content: "/ "; color: var(--cyan); }
+.prose { display: grid; gap: 14px; max-width: 66ch; }
+.note { color: var(--muted); font-size: 16px; max-width: 66ch; }
+ul.prose { padding-left: 1.1em; margin: 0; gap: 8px; }
+
+/* Gráficos */
+figure.chart { margin: 0; display: grid; gap: 12px; }
+.chart-title { font-family: var(--font-display); font-weight: 600; font-stretch: 85%; font-size: 21px; }
+.chart-sub { color: var(--muted); font-size: 15.5px; margin-top: -8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; color: var(--muted); }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.bars { display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: minmax(118px, 34%) 1fr; gap: 12px; align-items: center; }
+.row .name { font-size: 15.5px; line-height: 1.25; color: var(--ink); }
+.track { display: grid; gap: 2px; background-image: linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 25% 100%; padding-block: 1px; }
+.bar { height: 20px; display: flex; align-items: center; gap: 8px; cursor: default; position: relative; }
+.bar.two { height: 15px; }
+.fill { height: 100%; min-width: 3px; border-radius: 0 4px 4px 0; background: var(--br); transition: opacity .15s; }
+.bar.ext .fill { background: var(--ext); }
+.val { font-family: var(--font-mono); font-size: 13px; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.bar.two .val { font-size: 12px; color: var(--muted); }
+.bars:hover .fill { opacity: .45; }
+.bars .bar:hover .fill, .bars .bar:focus .fill { opacity: 1; }
+.axis { display: grid; grid-template-columns: minmax(118px, 34%) 1fr; gap: 12px; }
+.axis div { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); }
+details { font-size: 15.5px; }
+summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+table { border-collapse: collapse; margin-top: 10px; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+
+.callout { border-left: 3px solid var(--cyan); background: var(--bg); padding: 14px 18px; border-radius: 0 6px 6px 0; max-width: 66ch; }
+
+#tip { position: fixed; pointer-events: none; background: var(--night); color: var(--night-ink); font-size: 14px; line-height: 1.4; padding: 8px 10px; border-radius: 6px; max-width: 260px; opacity: 0; transition: opacity .1s; z-index: 10; }
+#tip b { color: #fff; }
+
+footer { background: var(--night); color: var(--night-muted); }
+footer .wrap { padding-block: 36px; display: grid; gap: 10px; font-size: 16px; }
+footer a { color: var(--night-ink); }
+footer a:hover { color: var(--cyan); }
+
+@media (max-width: 520px) {
+  .row, .axis { grid-template-columns: 1fr; gap: 4px; }
+  .axis > span { display: none; }
+  .bars { gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <a class="back" href="../">← Alex Perna · portfólio</a>
+    <p class="label">Pesquisa · outubro de 2026</p>
+    <h1>Que formação as vagas de governança de TI e GRC pedem?</h1>
+    <p class="lede">Li 146 vagas públicas, no Brasil e no exterior, para entender o que elas pedem de faculdade, certificação e idioma. Fiz isso para decidir meus próprios estudos, e deixo o resultado aqui caso ajude mais alguém.</p>
+    <div class="tiles">
+      <div class="tile"><b>146</b><span>vagas lidas: 93 no Brasil e 53 no exterior</span></div>
+      <div class="tile"><b>84%</b><span>das vagas no Brasil aceitam “áreas afins” ou “TI” em geral</span></div>
+      <div class="tile"><b>1%</b><span>das vagas no Brasil exigem bacharelado de forma explícita</span></div>
+      <div class="tile"><b>92%</b><span>das vagas no exterior pedem ou preferem bacharelado</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section>
+      <h2>Por que fiz</h2>
+      <div class="prose">
+        <p>Estou estudando gestão de serviços e governança de TI e tinha uma dúvida prática: qual graduação faz mais diferença para essas vagas? Em vez de decidir por opinião, resolvi olhar o que as próprias vagas escrevem.</p>
+        <p>Separei dois grupos no Brasil: <strong>governança de TI e gestão de serviços</strong> (44 vagas) e <strong>GRC, riscos e segurança</strong> (49 vagas). No exterior, juntei 53 vagas parecidas, a maioria dos Estados Unidos, Portugal, Irlanda, Holanda, Canadá e Alemanha.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Brasil: o nível de formação</h2>
+      <figure class="chart" aria-labelledby="c1t">
+        <p class="chart-title" id="c1t">O que a vaga pede de escolaridade</p>
+        <p class="chart-sub">% das 93 vagas no Brasil</p>
+        <div class="bars" data-chart='[["Superior completo",66,61],["Aceita superior em andamento",19,18],["Não deixa claro",13,12],["Não exige superior",2,2]]' data-n="93"></div>
+      </figure>
+      <p class="note">Quase um quinto das vagas aceita quem ainda está cursando. Ou seja, estar na faculdade já abre parte das portas.</p>
+    </section>
+
+    <section>
+      <h2>Brasil: qual curso</h2>
+      <figure class="chart" aria-labelledby="c2t">
+        <p class="chart-title" id="c2t">Como a vaga trata o nome do curso</p>
+        <p class="chart-sub">% das 93 vagas no Brasil</p>
+        <div class="bars" data-chart='[["Aceita “áreas afins” ou “TI” em geral",84,78],["Cita tecnólogo de forma explícita",12,11],["Aceita só uma lista fechada de cursos",3,3],["Exige bacharelado de forma explícita",1,1]]' data-n="93"></div>
+      </figure>
+      <figure class="chart" aria-labelledby="c3t">
+        <p class="chart-title" id="c3t">Cursos citados pelo nome</p>
+        <p class="chart-sub">% das 93 vagas no Brasil; uma vaga pode citar vários cursos</p>
+        <div class="bars" data-chart='[["Ciência da Computação",43,40],["Sistemas de Informação",42,39],["Administração",30,28],["Engenharia (qualquer)",26,24],["Segurança da Informação",24,22],["Engenharia de Computação",18,17],["Análise e Desenv. de Sistemas",16,15],["Direito",12,11],["Ciências Contábeis / Economia",11,10],["Engenharia de Software",3,3],["Gestão de TI",2,2]]' data-n="93"></div>
+      </figure>
+      <div class="callout prose">
+        <p><strong>O que eu tiro daqui:</strong> no Brasil, quase nenhuma vaga fecha a porta pelo nome do curso. Ciência da Computação e Sistemas de Informação são os mais citados, mas aparecem como exemplos, quase sempre seguidos de “ou áreas afins”. Gestão de TI aparece pouco pelo nome, só que cabe nesse “afins”.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certificações: Brasil e exterior</h2>
+      <figure class="chart" aria-labelledby="c4t">
+        <p class="chart-title" id="c4t">Certificações citadas</p>
+        <p class="chart-sub">% das vagas de cada grupo (93 no Brasil, 53 no exterior); citadas como exigência ou diferencial</p>
+        <div class="legend"><span><i style="background:var(--br)"></i>Brasil</span><span><i style="background:var(--ext)"></i>Exterior</span></div>
+        <div class="bars" data-pair='[["Alguma certificação",73,77],["ITIL",44,13],["ISO 27001",39,23],["COBIT",35,11],["CISA, CISM ou CRISC",11,53],["CISSP",4,34]]'></div>
+      </figure>
+      <div class="callout prose">
+        <p><strong>O que eu tiro daqui:</strong> nos dois lados, três em cada quatro vagas citam alguma certificação. A diferença é qual. No Brasil, ITIL, ISO 27001 e COBIT dominam; nas vagas de governança de TI, o ITIL sozinho aparece em 68%. No exterior, as certificações de auditoria e risco (CISA, CISM, CRISC) e a CISSP ganham muito mais espaço.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Exterior: o diploma pesa mais</h2>
+      <figure class="chart" aria-labelledby="c5t">
+        <p class="chart-title" id="c5t">O que a vaga pede de formação</p>
+        <p class="chart-sub">% das 53 vagas no exterior</p>
+        <div class="bars" data-chart='[["Bacharelado exigido",58,31],["Bacharelado ou experiência equivalente",28,15],["Bacharelado preferido",6,3],["Aceita diploma de 2 anos",6,3],["Só qualificação profissional",2,1]]' data-n="53"></div>
+      </figure>
+      <div class="prose">
+        <p>Fora do Brasil, o bacharelado aparece em 92% das vagas, como exigência ou preferência. Cerca de 30% aceitam experiência no lugar do diploma, o que acontece mais nos Estados Unidos. Em Portugal, 8 de 9 vagas exigiam licenciatura.</p>
+        <p class="note">Um ponto que pesa para quem pensa em trabalhar fora: serviços de avaliação de diploma, como o WES, costumam tratar um tecnólogo brasileiro como 2 a 3 anos de estudo superior, e não como bacharelado completo. No Brasil, o MEC trata os dois como o mesmo nível de graduação.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Idioma</h2>
+      <figure class="chart" aria-labelledby="c6t">
+        <p class="chart-title" id="c6t">Inglês nas vagas do Brasil</p>
+        <p class="chart-sub">% das 93 vagas no Brasil</p>
+        <div class="bars" data-chart='[["Menciona inglês",43,40],["Pede intermediário",25,23],["Pede avançado ou fluente",10,9]]' data-n="93"></div>
+      </figure>
+      <p class="note">Quase metade das vagas brasileiras fala de inglês, mas a maioria pede nível intermediário, normalmente para ler normas e documentação. No exterior, 47% citam o idioma; nas demais, ele está implícito.</p>
+    </section>
+
+    <section>
+      <h2>Resumo</h2>
+      <ul class="prose">
+        <li>No Brasil, a porta de entrada é ter graduação em TI ou área próxima; o nome exato do curso quase não filtra.</li>
+        <li>Certificação aparece em três de cada quatro vagas. ITIL e COBIT pesam mais em governança; ISO 27001 pesa mais em GRC.</li>
+        <li>No exterior, o bacharelado pesa bem mais, e as certificações mudam para auditoria e risco.</li>
+        <li>Inglês intermediário já cobre a maior parte das vagas do Brasil.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Como fiz e limites</h2>
+      <div class="prose">
+        <p>As vagas foram coletadas em sites públicos (Gupy, Vagas.com.br, Glassdoor, Sólides, Greenhouse, Built In e outros) com ajuda de ferramentas de IA, que leram cada anúncio e anotaram formação, cursos, certificações e idioma. Depois os resultados foram organizados e contados com um script em Python.</p>
+        <ul class="prose">
+          <li>É uma amostra de vagas, não o mercado inteiro. Os números mostram tendência, não regra.</li>
+          <li>A maioria das vagas é de 2025 e 2026, mas algumas são mais antigas e já estavam encerradas.</li>
+          <li>Vagas de sites agregadores podem repetir anúncios publicados em outros lugares.</li>
+          <li>Classificar texto livre sempre tem alguma margem de interpretação.</li>
+        </ul>
+        <p>Os dados, o script e a lista de vagas com links estão no <a href="https://github.com/alexpernaoficial/formacao-vagas-governanca-grc">repositório no GitHub</a>.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Alex Perna · Sarandi, PR</p>
+    <p><a href="../">Voltar ao portfólio</a> · <a href="https://www.linkedin.com/in/alexpernaoficial/">LinkedIn</a></p>
+  </div>
+</footer>
+
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  var tip = document.getElementById('tip');
+  function show(e, html) {
+    tip.innerHTML = html; tip.style.opacity = 1;
+    var x = e.clientX + 14, y = e.clientY + 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    if (x + w > innerWidth - 8) x = e.clientX - w - 14;
+    if (y + h > innerHeight - 8) y = e.clientY - h - 14;
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  }
+  function hide() { tip.style.opacity = 0; }
+  function bar(cls, pct, text, tipHtml) {
+    var b = document.createElement('div');
+    b.className = 'bar ' + cls; b.tabIndex = 0;
+    b.innerHTML = '<div class="fill" style="width:' + pct + '%"></div><span class="val">' + text + '</span>';
+    b.addEventListener('mousemove', function (e) { show(e, tipHtml); });
+    b.addEventListener('mouseleave', hide);
+    b.setAttribute('aria-label', tipHtml.replace(/<[^>]+>/g, ''));
+    return b;
+  }
+  function axis() {
+    var a = document.createElement('div'); a.className = 'axis'; a.setAttribute('aria-hidden', 'true');
+    a.innerHTML = '<span></span><div><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>';
+    return a;
+  }
+  function table(head, rows) {
+    var d = document.createElement('details');
+    var h = '<summary>Ver em tabela</summary><table><thead><tr>' + head.map(function (c, i) { return '<th' + (i ? ' class="n"' : '') + '>' + c + '</th>'; }).join('') + '</tr></thead><tbody>';
+    rows.forEach(function (r) { h += '<tr>' + r.map(function (c, i) { return '<td' + (i ? ' class="n"' : '') + '>' + c + '</td>'; }).join('') + '</tr>'; });
+    d.innerHTML = h + '</tbody></table>';
+    return d;
+  }
+  document.querySelectorAll('[data-chart]').forEach(function (el) {
+    var data = JSON.parse(el.dataset.chart), n = el.dataset.n;
+    data.forEach(function (d) {
+      var r = document.createElement('div'); r.className = 'row';
+      r.innerHTML = '<span class="name">' + d[0] + '</span>';
+      var t = document.createElement('div'); t.className = 'track';
+      t.appendChild(bar('', d[1], d[1] + '%', '<b>' + d[0] + '</b><br>' + d[1] + '% · ' + d[2] + ' de ' + n + ' vagas'));
+      r.appendChild(t); el.appendChild(r);
+    });
+    el.appendChild(axis());
+    el.parentNode.appendChild(table(['Item', '%', 'Vagas'], data.map(function (d) { return [d[0], d[1] + '%', d[2] + ' de ' + n]; })));
+  });
+  document.querySelectorAll('[data-pair]').forEach(function (el) {
+    var data = JSON.parse(el.dataset.pair);
+    data.forEach(function (d) {
+      var r = document.createElement('div'); r.className = 'row';
+      r.innerHTML = '<span class="name">' + d[0] + '</span>';
+      var t = document.createElement('div'); t.className = 'track';
+      t.appendChild(bar('two br', d[1], 'Brasil ' + d[1] + '%', '<b>' + d[0] + '</b><br>Brasil: ' + d[1] + '% de 93 vagas'));
+      t.appendChild(bar('two ext', d[2], 'Exterior ' + d[2] + '%', '<b>' + d[0] + '</b><br>Exterior: ' + d[2] + '% de 53 vagas'));
+      r.appendChild(t); el.appendChild(r);
+    });
+    el.appendChild(axis());
+    el.parentNode.appendChild(table(['Certificação', 'Brasil', 'Exterior'], data.map(function (d) { return [d[0], d[1] + '%', d[2] + '%']; })));
+  });
+})();
+</script>
+</body>
+</html>

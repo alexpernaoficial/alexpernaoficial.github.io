@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alex Perna</title>
+<meta name="description" content="Alex Perna: liderança de suporte técnico e gestão de serviços de TI. Projetos, trajetória e estudos em ITIL, COBIT e governança.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@85,600;85,700;100,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cabeçalho e rodapé escuros de ponta a ponta; conteúdo em faixa clara de leitura. Cada projeto tem uma "ficha de chamado" escura no topo. Visual único (escuro + branco), igual em qualquer tema. */
+:root {
+  --night: #0e1a1f;
+  --night-2: #16262c;
+  --night-ink: #e6eef0;
+  --night-muted: #93a8ae;
+  --paper: #ffffff;
+  --bg: #f2f5f6;
+  --ink: #142126;
+  --muted: #55666c;
+  --line: #d9e1e3;
+  --accent: #1b5a6e;
+  --cyan: #5fc2d8;
+  --signal: #4fd18b;
+  --font-display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 18px; line-height: 1.6; margin: 0; }
+.wrap { max-width: 760px; margin: 0 auto; padding-inline: 20px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+.label { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; }
+
+/* Cabeçalho escuro */
+.hero { background: var(--night); color: var(--night-ink); position: relative; overflow: hidden; }
+.hero::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+  background: linear-gradient(90deg, var(--cyan), transparent 70%);
+}
+.hero .wrap { padding-block: 72px 56px; display: grid; gap: 18px; }
+.hero .label { color: var(--cyan); }
+.hero h1 { font-size: clamp(46px, 9vw, 76px); font-weight: 700; font-stretch: 85%; letter-spacing: -.01em; color: #ffffff; }
+.role { font-size: clamp(19px, 3.2vw, 23px); max-width: 34ch; color: var(--night-ink); }
+.role strong { color: var(--cyan); font-weight: 600; }
+.links { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 16px; }
+.hero a { color: var(--night-ink); }
+.hero a:hover { color: var(--cyan); }
+
+main { background: var(--paper); }
+section { padding-block: 52px; border-bottom: 1px solid var(--line); display: grid; gap: 22px; }
+section:last-child { border-bottom: 0; }
+section h2 { font-size: 30px; font-weight: 700; font-stretch: 85%; }
+section h2::before { content: "/ "; color: var(--cyan); }
+.prose { display: grid; gap: 14px; max-width: 64ch; }
+.note { color: var(--muted); font-size: 16.5px; max-width: 64ch; }
+
+/* Projetos */
+.projects { display: grid; gap: 28px; }
+.case { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.ticket {
+  display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center;
+  padding: 10px 20px; background: var(--night-2); color: var(--night-muted);
+  font-family: var(--font-mono); font-size: 13px;
+}
+.status { color: var(--signal); font-weight: 500; }
+.status::before { content: "●"; margin-right: 6px; }
+.case-body { padding: 20px; display: grid; gap: 14px; }
+.case h3 { font-size: 23px; font-weight: 600; font-stretch: 85%; }
+.case dl { margin: 0; display: grid; gap: 10px; }
+.case dt { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.case dd { margin: 0; min-width: 0; }
+.practices { display: flex; flex-wrap: wrap; gap: 8px; }
+.practices span { font-family: var(--font-mono); font-size: 12.5px; padding: 3px 9px; background: #e3eff2; color: var(--ink); border-radius: 3px; }
+.case .more { font-size: 16px; font-weight: 600; }
+
+/* Trajetória */
+.timeline { display: grid; margin: 0; padding: 0; list-style: none; }
+.timeline li { display: grid; grid-template-columns: 128px 1fr; gap: 16px; padding-block: 14px; border-top: 1px solid var(--line); }
+.timeline li:first-child { border-top: 0; }
+.timeline .when { font-family: var(--font-mono); font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.timeline h3 { font-family: var(--font-body); font-size: 18px; font-weight: 600; }
+.timeline p { color: var(--muted); font-size: 16.5px; }
+
+/* Estudos */
+.study { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.study div { border-left: 2px solid var(--accent); padding: 2px 0 2px 14px; min-width: 0; }
+.study strong { display: block; font-weight: 600; }
+.study span { color: var(--muted); font-size: 16px; }
+
+/* Rodapé escuro */
+footer { background: var(--night); color: var(--night-muted); }
+footer .wrap { padding-block: 44px 56px; display: grid; gap: 12px; font-size: 16px; }
+footer h2 { font-size: 26px; font-weight: 700; font-stretch: 85%; color: #ffffff; }
+.contact { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
+footer a { color: var(--night-ink); }
+footer a:hover { color: var(--cyan); }
+.mail { font-family: var(--font-mono); font-size: 14.5px; color: var(--cyan); user-select: all; }
+
+@media (max-width: 520px) {
+  body { font-size: 17px; }
+  .hero .wrap { padding-block: 48px 40px; }
+  .timeline li { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .case { transition: border-color .2s, transform .2s; }
+  .case:hover { border-color: var(--accent); transform: translateY(-2px); }
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+    <p class="label">Maringá · Paraná · Brasil</p>
+    <h1>Alex Perna</h1>
+    <p class="role">Liderança de suporte técnico e <strong>gestão de serviços de TI</strong>, com foco em processos, indicadores e governança.</p>
+    <nav class="links" aria-label="Perfis">
+      <a href="https://www.linkedin.com/in/alexpernaoficial/">LinkedIn</a>
+      <a href="https://github.com/alexpernaoficial">GitHub</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#trajetoria">Trajetória</a>
+    </nav>
+  </div></header>
+<main><div class="wrap">
+
+  <section id="sobre" aria-labelledby="sobre-t">
+    <h2 id="sobre-t">Sobre</h2>
+    <div class="prose">
+      <p>Passei mais de 7 anos na Polícia Militar do Paraná, onde aprendi a decidir sob pressão, seguir protocolos e documentar cada ocorrência.</p>
+      <p>Desde 2021 trabalho com tecnologia aplicada a negócios: criei e geri um e-commerce próprio, desenvolvi sites e lojas virtuais, gerenciei tráfego pago, dei suporte técnico e mentoria a clientes e alunos e gravei cursos de e-commerce e marketing digital.</p>
+      <p>Em 2026 levei essa base para a TI corporativa. Hoje atuo no suporte técnico de um provedor de internet por fibra óptica, entre o atendimento ao cliente e a infraestrutura de rede, e participo da liderança e do desenvolvimento da equipe. Gosto de transformar problemas do dia a dia em processos claros, com dono, prazo e indicador.</p>
+    </div>
+  </section>
+
+  <section id="projetos" aria-labelledby="proj-t">
+    <h2 id="proj-t">Projetos</h2>
+    <p class="note">Ferramentas e programas criados para a operação de suporte onde trabalho. Os estudos de caso são conceituais: sem código, dados reais ou identificação da empresa.</p>
+
+    <div class="projects">
+      <article class="case">
+        <div class="ticket"><span class="status">em produção</span><span>Apps Script + Google Sheets</span><span>desenho, desenvolvimento e implantação</span></div>
+        <div class="case-body">
+          <h3>Pesquisa de satisfação pós-visita técnica</h3>
+          <dl>
+            <div><dt>Problema</dt><dd>A pesquisa era controlada numa planilha manual: fila desorganizada, dado pouco confiável e cliente insatisfeito sem ninguém responsável pelo retorno.</dd></div>
+            <div><dt>O que fiz</dt><dd>Um app interno com fila de ligações priorizada e painel de indicadores (NPS por técnico, cidade e período). Cada detrator vira uma tratativa com dono e prazo de 48 horas.</dd></div>
+            <div><dt>O que aprendi</dt><dd>Um indicador só gera melhoria quando existe dono e prazo para agir sobre ele.</dd></div>
+          </dl>
+          <div class="practices" aria-label="Práticas"><span>ITIL · nível de serviço</span><span>COBIT MEA01</span><span>LGPD</span></div>
+          <a class="more" href="https://github.com/alexpernaoficial/pesquisa-nps-atendimento">Ler o estudo de caso</a>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="ticket"><span class="status">em produção</span><span>Apps Script + Google Sheets</span><span>desenho, testes e implantação</span></div>
+        <div class="case-body">
+          <h3>Gestão de escalas e folgas</h3>
+          <dl>
+            <div><dt>Problema</dt><dd>Escala montada à mão para uma equipe em duas unidades, com turnos de madrugada, plantões e férias. Uma versão anterior falhava ao gravar sem avisar ninguém.</dd></div>
+            <div><dt>O que fiz</dt><dd>Um app com perfis de gestor e colaborador, erros sempre visíveis, controle de gravações simultâneas, testes automatizados e uma verificação após cada implantação.</dd></div>
+            <div><dt>O que aprendi</dt><dd>O pior erro é o que não avisa. Tornar a falha visível valeu mais do que qualquer funcionalidade nova.</dd></div>
+          </dl>
+          <div class="practices" aria-label="Práticas"><span>ITIL · força de trabalho</span><span>ITIL · mudanças</span><span>COBIT APO07</span></div>
+          <a class="more" href="https://github.com/alexpernaoficial/gestao-escalas-folgas">Ler o estudo de caso</a>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="ticket"><span class="status">em uso</span><span>apostila, aulas e manual interativo</span><span>conteúdo e treinamento das turmas</span></div>
+        <div class="case-body">
+          <h3>Treinamento e integração de novos atendentes</h3>
+          <dl>
+            <div><dt>Problema</dt><dd>Cada atendente era treinado de um jeito, muitos chamados subiam para o segundo nível sem necessidade e o conhecimento ficava concentrado em poucas pessoas.</dd></div>
+            <div><dt>O que fiz</dt><dd>Um programa em três camadas: apostila, aulas com diagramas próprios da rede e um manual interativo com o passo a passo dos cinco problemas mais frequentes, usado durante o atendimento real.</dd></div>
+            <div><dt>O que aprendi</dt><dd>Material que só existe na sala de treinamento é esquecido. A consulta no momento do atendimento é o que fixa.</dd></div>
+          </dl>
+          <div class="practices" aria-label="Práticas"><span>ITIL · conhecimento</span><span>ITIL · incidentes</span><span>COBIT BAI08</span></div>
+          <a class="more" href="https://github.com/alexpernaoficial/treinamento-integracao-suporte">Ler o estudo de caso</a>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="ticket"><span class="status">em produção</span><span>Apps Script + Google Sheets</span><span>ideia, experiência e desenvolvimento</span></div>
+        <div class="case-body">
+          <h3>Arena de Atendimento</h3>
+          <dl>
+            <div><dt>Problema</dt><dd>O desempenho da equipe já era medido, mas ficava escondido numa planilha que quase ninguém abria.</dd></div>
+            <div><dt>O que fiz</dt><dd>Um ranking visual em formato de gincana, com pódio, que lê a nota oficial direto da planilha da gestão, sem recalcular nada. Uma única fonte de verdade.</dd></div>
+            <div><dt>O que aprendi</dt><dd>Um indicador que ninguém vê não motiva ninguém. A forma de mostrar importa tanto quanto o cálculo.</dd></div>
+          </dl>
+          <div class="practices" aria-label="Práticas"><span>ITIL · melhoria contínua</span><span>COBIT MEA01</span></div>
+          <a class="more" href="https://github.com/alexpernaoficial/arena-ranking-atendimento">Ler o estudo de caso</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="trajetoria" aria-labelledby="traj-t">
+    <h2 id="traj-t">Trajetória</h2>
+    <ol class="timeline">
+      <li><span class="when">2026 – hoje</span><div><h3>Suporte técnico e liderança de equipe</h3><p>Provedor de internet por fibra óptica. De estagiário a suporte N2 em quatro meses, com treinamento de novos atendentes e participação na gestão da equipe.</p></div></li>
+      <li><span class="when">2021 – 2026</span><div><h3>Negócios digitais</h3><p>E-commerce próprio com mais de R$ 1 milhão em faturamento, sites, tráfego pago, cursos gravados e mentoria.</p></div></li>
+      <li><span class="when">2013 – 2021</span><div><h3>Polícia Militar do Paraná</h3><p>Decisão sob pressão, protocolos, legislação e documentação com valor legal.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="estudos" aria-labelledby="est-t">
+    <h2 id="est-t">Estudando agora</h2>
+    <div class="study">
+      <div><strong>ITIL 4 e COBIT 2019</strong><span>Mentoria em governança, riscos e compliance</span></div>
+      <div><strong>ISO/IEC 27001</strong><span>Segurança da informação</span></div>
+      <div><strong>Formação de líderes</strong><span>Programa da empresa, 2026</span></div>
+      <div><strong>Graduação em TI</strong><span>Gran Faculdade · também formado em Gestão Pública</span></div>
+    </div>
+  </section>
+
+</div></main>
+<footer><div class="wrap">
+  <h2>Contato</h2>
+  <div class="contact">
+    <a href="https://www.linkedin.com/in/alexpernaoficial/">LinkedIn</a>
+    <a href="https://github.com/alexpernaoficial">GitHub</a>
+    <span class="mail">alexpernaoficial@gmail.com</span>
+  </div>
+  <p>Alex Perna · Maringá, PR</p>
+</div></footer>
+</body>
+</html>
